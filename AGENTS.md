@@ -2,6 +2,11 @@
 
 Este repositório contém a **documentação de ajuda para usuários finais do Proton** (o app real está em [github.com/thiagolima86/proton](https://github.com/thiagolima86/proton), repo privado — não está disponível aqui). Este repo é só documentação, não tem código da aplicação Proton.
 
+## Gestão de trabalho
+
+- As **issues** relacionadas a este repositório (`proton-help`) são criadas e acompanhadas no repositório **`thiagolima86/proton`**, não aqui.
+- O trabalho é organizado em **ciclos**, que no GitHub correspondem a **milestones** do repo `proton` (ex: milestone "🦆 Pato").
+
 ## O que este repo é
 
 - Site estático de documentação, gerado com **VitePress** a partir de arquivos Markdown em `docs/`.
