@@ -1,6 +1,6 @@
 # proton-help
 
-Documentação de ajuda para usuários do Proton, publicada como site estático no GitHub Pages.
+Documentação de ajuda para usuários do [Proton](https://github.com/thiagolima86/proton), publicada como site estático no GitHub Pages.
 
 ## Desenvolvimento
 
@@ -24,4 +24,4 @@ Para habilitar: em **Settings → Pages** do repositório no GitHub, configure *
 
 ## Estrutura
 
-Conteúdo em `docs/*.md`. Veja [CLAUDE.md](./CLAUDE.md) para convenções de conteúdo e estrutura.
+Conteúdo em `docs/*.md`. Veja [AGENTS.md](./AGENTS.md) para convenções de conteúdo e estrutura.
