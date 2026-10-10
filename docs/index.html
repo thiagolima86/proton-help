@@ -650,19 +650,24 @@
         left: -300px !important;
         width: 280px !important;
         height: calc(100vh - 64px) !important;
+        background-color: var(--sidebar-bg) !important;
         transform: none !important;
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        z-index: 1000 !important;
+        transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        z-index: 10000 !important;
         box-shadow: none !important;
+        filter: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        opacity: 1 !important;
       }
 
       /* Aberto no mobile */
       body.close .sidebar {
         transform: translateX(300px) !important;
-        box-shadow: 8px 0 32px rgba(0, 0, 0, 0.5) !important;
+        box-shadow: 10px 0 35px rgba(0, 0, 0, 0.6) !important;
       }
 
-      /* Backdrop escurecido ao abrir o menu no celular */
+      /* Backdrop escurecido nítido ao abrir o menu (sem blur para não embaçar o texto) */
       body.close::after {
         content: "";
         position: fixed;
@@ -670,9 +675,9 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.55);
-        backdrop-filter: blur(2px);
-        z-index: 999;
+        background: rgba(0, 0, 0, 0.65) !important;
+        z-index: 9999 !important;
+        pointer-events: auto;
       }
 
       .content {
