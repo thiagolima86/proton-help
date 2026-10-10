@@ -7,6 +7,14 @@ Este repositório contém a **documentação de ajuda para usuários finais do P
 - As **issues** relacionadas a este repositório (`proton-help`) são criadas e acompanhadas no repositório **`thiagolima86/proton`**, não aqui.
 - O trabalho é organizado em **ciclos**, que no GitHub correspondem a **milestones** do repo `proton` (ex: milestone "🦆 Pato").
 
+### Fluxo de Issues e Desenvolvimento
+- **Iniciar Issue:** Ao pedir para iniciar uma issue, o agente deve marcá-la com a label `doing` (removendo `ready`/`planning`) e atribuir a si mesmo (`@me`).
+- **Encerrar Issue:** Ao pedir para encerrar o desenvolvimento, a label `doing` deve ser removida e a issue fechada como `completed`.
+- **Refinamento de Issues (`planning`):**
+  - **Decisões simples/óbvias:** O agente toma sozinho (estruturação, checklists, padrões).
+  - **Decisões complexas/ambíguas:** O agente deve perguntar ao usuário antes de decidir.
+  - Após refinada, mover de `planning` para `ready`.
+
 ## O que este repo é
 
 - Site estático de documentação, renderizado client-side no navegador via **Docsify** a partir de arquivos Markdown em `docs/`.
