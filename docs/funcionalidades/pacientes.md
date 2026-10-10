@@ -16,3 +16,7 @@ O módulo de **Pacientes** centraliza todo o histórico cadastral e clínico das
 4. Clique em **Salvar**.
 
 > 💡 **Dica:** Manter o número de WhatsApp preenchido corretamente facilita o envio automático de lembretes de consulta.
+
+<div class="video-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/cGp9OVO9SAo?si=yrlk-T5EtUlOuxme" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>

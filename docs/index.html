@@ -537,6 +537,30 @@
     }
 
     /* =========================================
+       VÍDEOS RESPONSIVOS EMBEDDED
+       ========================================= */
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 680px;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      aspect-ratio: 16 / 9;
+      background-color: #000000;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+      border: 0 !important;
+    }
+
+    /* =========================================
        RESPONSIVIDADE MOBILE
        ========================================= */
     @media screen and (max-width: 768px) {
