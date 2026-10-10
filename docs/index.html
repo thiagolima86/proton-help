@@ -561,14 +561,52 @@
     }
 
     /* =========================================
+       BOTÃO DE MENU MOBILE (3 BARRINHAS)
+       ========================================= */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      width: 36px;
+      height: 36px;
+      background-color: var(--search-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 0;
+      box-sizing: border-box;
+      flex-shrink: 0;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background-color: var(--text-heading) !important;
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    /* Ocultar toggle nativo do Docsify */
+    .sidebar-toggle {
+      display: none !important;
+    }
+
+    /* =========================================
        RESPONSIVIDADE MOBILE
        ========================================= */
     @media screen and (max-width: 768px) {
       .app-header {
-        padding: 0 12px 0 12px !important;
+        padding: 0 12px !important;
+      }
+      .mobile-menu-btn {
+        display: flex !important;
       }
       .brand {
-        margin-left: 38px !important;
+        margin-left: 0 !important;
         gap: 8px !important;
       }
       .brand img {
@@ -589,54 +627,27 @@
         font-size: 0.95rem !important;
       }
       .search input {
-        width: 120px !important;
-        padding: 6px 12px 6px 30px !important;
+        width: 110px !important;
+        padding: 6px 10px 6px 28px !important;
         font-size: 0.8rem !important;
       }
       .search input:focus {
-        width: 155px !important;
+        width: 145px !important;
       }
       .search .input-wrap::before {
-        left: 10px !important;
-        font-size: 0.75rem !important;
+        left: 8px !important;
+        font-size: 0.7rem !important;
       }
       .search .results-panel {
         width: calc(100vw - 24px) !important;
         right: -50px !important;
       }
 
-      /* Botão do menu hamburguer (3 barrinhas) */
-      .sidebar-toggle {
-        position: fixed !important;
-        top: 15px !important;
-        left: 12px !important;
-        width: 34px !important;
-        height: 34px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background: var(--search-bg) !important;
-        border: 1px solid var(--border-color) !important;
-        border-radius: 8px !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        z-index: 1002 !important;
-        cursor: pointer !important;
-      }
-      .sidebar-toggle span {
-        background-color: var(--text-heading) !important;
-        height: 2px !important;
-        width: 16px !important;
-        margin: 2px auto !important;
-        display: block !important;
-        border-radius: 2px !important;
-      }
-
       /* Drawer da Sidebar */
       .sidebar {
         position: fixed !important;
         top: 64px !important;
-        left: -290px !important;
+        left: -300px !important;
         width: 280px !important;
         height: calc(100vh - 64px) !important;
         transform: none !important;
@@ -645,10 +656,10 @@
         box-shadow: none !important;
       }
 
-      /* Aberto no mobile quando Docsify ativa body.close */
+      /* Aberto no mobile */
       body.close .sidebar {
-        transform: translateX(290px) !important;
-        box-shadow: 6px 0 24px rgba(0, 0, 0, 0.45) !important;
+        transform: translateX(300px) !important;
+        box-shadow: 8px 0 32px rgba(0, 0, 0, 0.5) !important;
       }
 
       /* Backdrop escurecido ao abrir o menu no celular */
@@ -678,13 +689,20 @@
 <body>
   <!-- Header Fixo Superior -->
   <header class="app-header">
-    <a href="#/" class="brand">
-      <img src="_design/logo.png" alt="Proton Logo" onerror="this.style.display='none'">
-      <div>
-        <div class="brand-title">Proton ajuda</div>
-        <div class="brand-subtitle">Central de ajuda</div>
-      </div>
-    </a>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menu de navegação" title="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="#/" class="brand">
+        <img src="_design/logo.png" alt="Proton Logo" onerror="this.style.display='none'">
+        <div>
+          <div class="brand-title">Proton ajuda</div>
+          <div class="brand-subtitle">Central de ajuda</div>
+        </div>
+      </a>
+    </div>
     <div class="header-actions">
       <div id="search-container"></div>
       <button class="theme-toggle-btn" id="theme-toggle" title="Alternar tema claro/escuro">🌙</button>
@@ -726,6 +744,15 @@
         toggleBtn.addEventListener('click', () => {
           const isDark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark');
           applyTheme(isDark ? 'light' : 'dark');
+        });
+      }
+
+      // Botão hamburguer mobile (3 barrinhas)
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      if (mobileBtn) {
+        mobileBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          document.body.classList.toggle('close');
         });
       }
     });
@@ -780,8 +807,8 @@
     document.addEventListener('click', (e) => {
       if (window.innerWidth <= 768 && document.body.classList.contains('close')) {
         const sidebar = document.querySelector('.sidebar');
-        const toggleBtn = document.querySelector('.sidebar-toggle');
-        if (sidebar && !sidebar.contains(e.target) && toggleBtn && !toggleBtn.contains(e.target)) {
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        if (sidebar && !sidebar.contains(e.target) && mobileBtn && !mobileBtn.contains(e.target)) {
           document.body.classList.remove('close');
         }
       }
