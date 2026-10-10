@@ -9,17 +9,19 @@ Este repositório contém a **documentação de ajuda para usuários finais do P
 
 ## O que este repo é
 
-- Site estático de documentação, gerado com **VitePress** a partir de arquivos Markdown em `docs/`.
-- Publicado no **GitHub Pages** via GitHub Actions (`.github/workflows/deploy.yml`), sem backend/servidor em produção.
-- Tema dark/light já vem nativo do VitePress.
+- Site estático de documentação, renderizado client-side no navegador via **Docsify** a partir de arquivos Markdown em `docs/`.
+- Publicado diretamente no **GitHub Pages** (apontando para a branch `main` e pasta `/docs`), sem etapa de build/CI ou servidor de backend em produção.
+- Tema customizado claro/escuro (dark/light) com a identidade visual do Proton.
 
 ## Estrutura
 
 ```
 docs/
-  .vitepress/
-    config.mts       # configuração do site (nav, sidebar, título, etc)
-  index.md           # página inicial (home)
+  .nojekyll          # desativa processamento do Jekyll no GitHub Pages
+  index.html         # casca HTML e configuração do Docsify / temas
+  README.md          # página inicial / boas-vindas
+  _sidebar.md        # navegação lateral
+  _design/           # mockups e identidade visual
   primeiros-passos/   # onboarding do usuário
   funcionalidades/    # documentação das funcionalidades do app
   faq.md              # perguntas frequentes
@@ -28,23 +30,29 @@ docs/
 ## Convenções de conteúdo
 
 - Todo o conteúdo é em **português** e escrito para o **usuário final não-técnico** do Proton — evite jargão técnico, explique em termos de telas e ações que o usuário vê no app.
-- Cada nova página markdown em `docs/` precisa ser adicionada ao `sidebar` em `docs/.vitepress/config.mts` para aparecer na navegação.
+- Cada nova página markdown em `docs/` precisa ser adicionada ao menu em `docs/_sidebar.md` para aparecer na navegação.
 - Use nomes de arquivo em kebab-case, sem acento (ex: `recuperar-senha.md`).
 - Ao documentar uma funcionalidade, descreva o fluxo do ponto de vista do usuário (o que ele vê, o que ele clica, o que esperar), não a implementação.
 
 ## Comandos
 
+Para testar localmente, execute qualquer servidor HTTP estático na pasta `docs`:
+
 ```bash
-npm install        # instala dependências
-npm run docs:dev    # roda o site localmente em modo dev
-npm run docs:build   # gera o build estático em docs/.vitepress/dist
-npm run docs:preview # serve o build estático localmente
+# Opção 1 (usando npx docsify-cli):
+npx docsify serve docs
+
+# Opção 2 (usando Python):
+python -m http.server 3000 --directory docs
+
+# Opção 3 (usando npx serve):
+npx serve docs
 ```
 
 ## Deploy
 
-- Push na branch `main` dispara o workflow do GitHub Actions que faz build e publica automaticamente no GitHub Pages.
-- Não há necessidade de build manual ou deploy manual.
+- Publicação direta no GitHub Pages apontando para a pasta `/docs` da branch `main`.
+- Não há necessidade de build manual ou CI complexo.
 
 ## O que evitar
 

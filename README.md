@@ -1,26 +1,27 @@
 # proton-help
 
-Documentação de ajuda para usuários do [Proton](https://github.com/thiagolima86/proton), publicada como site estático no GitHub Pages.
+Documentação de ajuda para usuários do [Proton](https://github.com/thiagolima86/proton), publicada como site estático no GitHub Pages utilizando **Docsify**.
 
-## Desenvolvimento
+## Visualização Local
 
-```bash
-npm install
-npm run docs:dev
-```
-
-## Build
+Para visualizar localmente, inicie um servidor HTTP na pasta `docs/`:
 
 ```bash
-npm run docs:build
-npm run docs:preview
+# Com docsify-cli
+npx docsify serve docs
+
+# Ou com Python
+python -m http.server 3000 --directory docs
 ```
+
+Abra `http://localhost:3000` no seu navegador.
 
 ## Deploy
 
-Automático via GitHub Actions a cada push na branch `main` (ver `.github/workflows/deploy.yml`).
-
-Para habilitar: em **Settings → Pages** do repositório no GitHub, configure **Source: GitHub Actions**.
+Automático via GitHub Pages:
+1. Em **Settings → Pages** do repositório no GitHub.
+2. Em **Build and deployment > Source**, selecione **Deploy from a branch**.
+3. Escolha a branch `main` e a pasta `/docs`.
 
 ## Estrutura
 
