@@ -25,9 +25,22 @@ Para encontrar rapidamente o cadastro de um paciente:
    - **Telefone / WhatsApp**
    - **Data de Nascimento**
 3. Preencha os campos adicionais conforme necessário (CPF, e-mail, endereço, convênio e observações gerais).
-4. Clique em **Salvar** para concluir o cadastro.
+4. Escolha como deseja finalizar o cadastro:
+   - **Salvar:** Conclui o cadastro imediatamente no sistema.
+   - **Salvar e copiar link:** Salva o pré-cadastro e copia um link exclusivo para a área de transferência.
 
-> 💡 **Dica:** Certifique-se de preencher o número do WhatsApp com o DDD correto. Isso garante que o envio automático de lembretes de consulta funcione perfeitamente!
+### Como funciona o "Salvar e copiar link"
+
+Essa opção permite que o próprio paciente termine de preencher seus dados, economizando tempo na recepção:
+
+1. Ao clicar em **Salvar e copiar link**, o link do formulário do paciente é copiado automaticamente.
+2. Envie o link para o paciente pelo WhatsApp, e-mail ou mensagem.
+3. O paciente abre o link em seu celular ou qualquer dispositivo e preenche suas próprias informações cadastrais.
+4. Assim que o paciente enviar, a ficha dele no Proton é atualizada automaticamente.
+
+> 💡 **Dica:** Sempre que possível, solicite e preencha o **CPF** do paciente. O CPF é fundamental para a identificação única do cadastro, emissão de recibos e conformidade fiscal.
+
+> 💡 **Dica:** Certifique-se de preencher o número do WhatsApp com o DDD correto. Isso garante que o envio de links e lembretes automáticos de consulta funcione perfeitamente!
 
 ---
 
